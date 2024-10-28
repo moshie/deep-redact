@@ -1,25 +1,30 @@
 {
-  "name": "deep-redact",
-  "version": "1.0.0",
-  "description": "Deeply redact sensitive data from JS primitives",
-  "scripts": {
-    "test": "vitest"
-  },
-  "keywords": [
-    "blacklist",
-    "sensitive",
-    "redaction",
-    "redactor",
-    "secrets",
-    "censor",
-    "redact",
-    "deep",
-    "data",
-    "json"
-  ],
-  "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "vitest": "^2.1.4"
-  }
+	"name": "deep-redact",
+	"version": "1.0.0",
+	"description": "Deeply redact sensitive data from JS primitives",
+	"scripts": {
+		"test": "vitest"
+	},
+	"type": "module",
+	"keywords": [
+		"blacklist",
+		"sensitive",
+		"redaction",
+		"redactor",
+		"secrets",
+		"censor",
+		"redact",
+		"deep",
+		"data",
+		"json"
+	],
+	"author": {
+		"name": "David Hewitt",
+		"email": "hello@moshie.dev",
+		"url": "https://cv.moshie.dev/"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"vitest": "^2.1.4"
+	}
 }
