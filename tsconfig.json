@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "moduleResolution": "Bundler",
+        "module": "ESNext",
+        "lib": ["ESNext"],
+        "types": ["vitest/globals"]
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"]
+}
