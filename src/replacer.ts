@@ -1,43 +1,45 @@
 import { redact } from ".";
-import type { RedactOptions } from "./types";
 import { isPlainObject } from "./is-plain-object";
 import { canBeRedacted } from "./can-be-redacted";
+import type { RedactOptions, Data } from "./types";
+import { safelyConvertToObject } from "./safely-convert-to-object";
 
 export const replacer =
-	(options: RedactOptions) => (_key: string, data: any) => {
+	(options: RedactOptions) => (_key: string, data: Data) => {
 		const { list = [], redactString = "[REACTED]" } = options;
 
+		/**
+		 * Return Arrays
+		 */
 		if (Array.isArray(data)) {
 			return data;
+		}
+
+		/**
+		 * Convert Map to Object
+		 */
+		if (data instanceof Map) {
+			return redact(Object.fromEntries(data), options);
+		}
+
+		/**
+		 * Convert Set to Array
+		 */
+		if (data instanceof Set) {
+			return redact(Array.from(data), options);
 		}
 
 		/**
 		 * Handle Plain Object
 		 */
 		if (isPlainObject(data)) {
-			for (const [k, value] of Object.entries(data)) {
-				data[k] = canBeRedacted({ key: k, value, list }) ? redactString : value;
+			for (const key in data) {
+				data[key] = canBeRedacted({ key, value: data[key], list })
+					? redactString
+					: data[key];
 			}
+
 			return data;
-		}
-
-		/**
-		 * Handle Map
-		 */
-		if (data instanceof Map) {
-			const obj = Object.fromEntries(data.entries());
-			for (const [k, value] of Object.entries(obj)) {
-				obj[k] = canBeRedacted({ key: k, value, list }) ? redactString : value;
-			}
-
-			return obj;
-		}
-
-		/**
-		 * Handle Set
-		 */
-		if (data instanceof Set) {
-			return redact(Array.from(data), options);
 		}
 
 		// TODO:
@@ -53,20 +55,13 @@ export const replacer =
 		 * Date, RegExp, class
 		 */
 		if (typeof data === "object") {
-			if (data instanceof Date || data instanceof RegExp) {
+			const obj = safelyConvertToObject(data);
+
+			if (!obj) {
 				return data;
 			}
 
-			// Some other object? a class instance WRAP THIS IN A TRY CATCH!
-			try {
-				// Move this out to a function called safelyConvertClassInstanceToPlainObject
-				const convertedClassInstanceToPlainObject = JSON.parse(
-					JSON.stringify(data),
-				);
-				return redact(convertedClassInstanceToPlainObject, options);
-			} catch (e) {
-				return data;
-			}
+			return redact(obj, options);
 		}
 
 		// Handle strings:
@@ -75,6 +70,7 @@ export const replacer =
 		// html
 		// yaml
 		// XML
+		// file paths e.g /Users/[REDACTED]/documents
 		// etc
 
 		return data;
