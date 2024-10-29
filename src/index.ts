@@ -1,11 +1,13 @@
 import { replacer } from "./replacer";
-import type { RedactOptions } from "./types";
+import type { RedactOptions, Data } from "./types";
 
-export const redact = (data: any, options: RedactOptions) => {
+export const redact = (data: Data, options: RedactOptions) => {
+	const { list = [], strict = false } = options;
+
 	/**
 	 * Handle empty list
 	 */
-	if (options?.list?.length === 0) {
+	if (list.length === 0) {
 		return data;
 	}
 
@@ -13,8 +15,10 @@ export const redact = (data: any, options: RedactOptions) => {
 		const raw = JSON.stringify(data, replacer(options));
 		return JSON.parse(raw);
 	} catch (e) {
-		// TODO: HANDLE UNHANDLED OBJECT
-		console.error(e);
-		return "[CIRCULAR]";
+		if (strict) {
+			throw e;
+		}
+		console.log("[CIRCULAR]");
+		return data;
 	}
 };
