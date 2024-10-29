@@ -1,10 +1,8 @@
-import { isPlainObject } from "./is-plain-object";
 import type { CanBeRedactedArgs } from "./types";
+import { isPlainObject } from "./is-plain-object";
 
-
-// TODO maybe you can pass your own redactFunction?
-export const canBeRedacted = ({
-    key,
-    value,
-    list
-}: CanBeRedactedArgs) => list.filter((listKey) => listKey.toLowerCase() === key.toLowerCase()).length > 0 && !isPlainObject(value) && typeof value !== 'symbol';
+export const canBeRedacted = ({ key, value, list }: CanBeRedactedArgs) =>
+	typeof list.find((listKey) => listKey.toLowerCase() === key.toLowerCase()) !==
+		"undefined" &&
+	!isPlainObject(value) &&
+	typeof value !== "symbol";
