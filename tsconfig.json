@@ -1,11 +1,12 @@
 {
-    "compilerOptions": {
-        "target": "ESNext",
-        "moduleResolution": "Bundler",
-        "module": "ESNext",
-        "lib": ["ESNext"],
-        "types": ["vitest/globals"]
-    },
-    "include": ["src/**/*.ts"],
-    "exclude": ["node_modules"]
+	"compilerOptions": {
+		"strict": true,
+		"target": "ESNext",
+		"moduleResolution": "Bundler",
+		"module": "ESNext",
+		"lib": ["ESNext", "DOM"],
+		"types": ["vitest/globals"]
+	},
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules"]
 }

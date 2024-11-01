@@ -12,13 +12,15 @@ export const redact = (data: Data, options: RedactOptions) => {
 	}
 
 	try {
+		console.log("INITIAL", data, typeof data);
 		const raw = JSON.stringify(data, replacer(options));
 		return JSON.parse(raw);
 	} catch (e) {
 		if (strict) {
 			throw e;
 		}
-		console.log("[CIRCULAR]");
+
+		console.log("[CIRCULAR]", e);
 		return data;
 	}
 };

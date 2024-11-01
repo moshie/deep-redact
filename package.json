@@ -25,6 +25,10 @@
 	},
 	"license": "MIT",
 	"dependencies": {
+		"relaxed-json": "^1.0.3",
 		"vitest": "^2.1.4"
+	},
+	"devDependencies": {
+		"@types/relaxed-json": "^1.0.4"
 	}
 }

@@ -1,4 +1,6 @@
-export const safelyConvertToObject = (data: object): boolean | object => {
+export const safelyConvertToObject = (
+	data: object | null,
+): boolean | object => {
 	try {
 		const raw = JSON.stringify(data);
 		return JSON.parse(raw);
