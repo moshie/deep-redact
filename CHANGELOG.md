@@ -1,5 +1,11 @@
 # deep-redact
 
+## 1.0.5
+
+### Patch Changes
+
+- 89284a8: Stop including vitest as a dependency update exports
+
 ## 1.0.4
 
 ### Patch Changes
