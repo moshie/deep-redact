@@ -1,6 +1,6 @@
 {
 	"name": "deep-redact",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Deeply redact sensitive data from JS primitives",
 	"scripts": {
 		"build": "tsup src/index.ts --format esm,cjs --dts",
