@@ -1,5 +1,11 @@
 # deep-redact
 
+## 1.0.4
+
+### Patch Changes
+
+- 5b3af69: Fix Release errors
+
 ## 1.0.3
 
 ### Patch Changes

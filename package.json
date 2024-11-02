@@ -1,6 +1,6 @@
 {
 	"name": "deep-redact",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Deeply redact sensitive data from JS primitives",
 	"scripts": {
 		"build": "tsup src/index.ts --format esm --dts",
@@ -18,7 +18,9 @@
 			"default": "./dist/index.js"
 		}
 	},
-	"files": ["dist/"],
+	"files": [
+		"dist/"
+	],
 	"keywords": [
 		"blacklist",
 		"sensitive",
