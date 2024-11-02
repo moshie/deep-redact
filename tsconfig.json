@@ -4,9 +4,11 @@
 		"target": "ESNext",
 		"moduleResolution": "Bundler",
 		"module": "ESNext",
-		"lib": ["ESNext", "DOM"],
+		"lib": ["ESNext"],
+		"skipLibCheck": true,
+		"esModuleInterop": true,
 		"types": ["vitest/globals"]
 	},
 	"include": ["src/**/*.ts"],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules", "dist"]
 }

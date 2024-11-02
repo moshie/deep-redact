@@ -1,6 +1,6 @@
 # `deep-redact`
 
-- Write test for strict mode
+- Write test for strict mode - DONE
 - Write test for safelyConvertToObject - DONE
 - Allow to preserve original object type? -
 - Handle error state
@@ -9,7 +9,7 @@
 - Regex matching on keys
 - Replace any with actual accepted types
 - benchmarks
-- test coverage
+- test coverage - DONE
 - passing your own redact function?
 - strict option to throw or return original data - DONE
 - dont clone the object for faster speeds!

@@ -1,11 +1,23 @@
 {
 	"name": "deep-redact",
-	"version": "1.0.0",
+	"version": "0.0.0",
 	"description": "Deeply redact sensitive data from JS primitives",
 	"scripts": {
-		"test": "vitest"
+		"build": "tsup src/index.ts --format esm,cjs --dts",
+		"release": "pnpm build && changeset publish",
+		"coverage": "vitest run --coverage",
+		"test": "vitest --typecheck",
+		"lint": "biome lint --write src/",
+		"format": "biome format src/",
+		"typecheck": "tsc --noEmit"
 	},
 	"type": "module",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		}
+	},
 	"keywords": [
 		"blacklist",
 		"sensitive",
@@ -25,13 +37,19 @@
 	},
 	"license": "MIT",
 	"dependencies": {
+		"@changesets/cli": "^2.27.9",
 		"is-url": "^1.2.4",
 		"query-string": "^9.1.1",
 		"relaxed-json": "^1.0.3",
 		"vitest": "^2.1.4"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
 		"@types/is-url": "^1.2.32",
-		"@types/relaxed-json": "^1.0.4"
+		"@types/relaxed-json": "^1.0.4",
+		"@vitest/coverage-v8": "2.1.4",
+		"lefthook": "^1.8.2",
+		"tsup": "^8.3.5",
+		"typescript": "^5.6.3"
 	}
 }
