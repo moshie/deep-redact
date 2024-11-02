@@ -1,5 +1,11 @@
 # deep-redact
 
+## 1.0.2
+
+### Patch Changes
+
+- 0990909: Fix release error
+
 ## 1.0.0
 
 ### Major Changes
