@@ -6,7 +6,7 @@
 pre-push:
   commands:
     test:
-      run: pnpm test
+      run: pnpm test -- --watch=false
 
 pre-commit:
   parallel: true
