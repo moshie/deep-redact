@@ -1,5 +1,11 @@
 # deep-redact
 
+## 1.0.3
+
+### Patch Changes
+
+- 0ee56a3: Fix Release
+
 ## 1.0.2
 
 ### Patch Changes
