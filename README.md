@@ -1,10 +1,10 @@
 # `deep-redact`
 
-Deep redact is a library that allows you to recursively redact sensitive data from objects. It uses a list of keys to redact the data.
+Deep redact is a package that recursively redacts sensitive data from JavaScript primitives based on a list of keys.
 
 ## Features
 
-- Recursively redact data from strings, objects, maps, sets, arrays, and symbols
+- Redaction of data from strings, objects, classes, maps, sets, arrays, and symbols
 - Supports strict mode to throw an error or return original data in the event of an error.
 - Redact data from JSON strings
 - Redact data from URLs
