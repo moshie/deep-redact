@@ -283,7 +283,7 @@ describe("redact", () => {
 		expect(result).toEqual(expectedTestObject);
 	});
 
-	test.only("should redact url parameters", () => {
+	test("should redact url query parameters", () => {
 		const data = {
 			url: "https://cv.moshie.dev/redactor?this=test&password=12345&email=hello@test.com",
 		};
@@ -292,7 +292,20 @@ describe("redact", () => {
 			list: ["password", "email"],
 		});
 		expect(result).toEqual({
-			url: "https://cv.moshie.dev/redactor?this=test&password=[REDACTED]&email=[REDACTED]",
+			url: "https://cv.moshie.dev/redactor?email=%5BREDACTED%5D&password=%5BREDACTED%5D&this=test",
+		});
+	});
+
+	test("should redact just query parameters", () => {
+		const data = {
+			params: "this=test&password=123456&email=test@email.com",
+		};
+		const result = redact(data, {
+			redactString: "[REDACTED]",
+			list: ["email", "password"],
+		});
+		expect(result).toEqual({
+			params: "email=%5BREDACTED%5D&password=%5BREDACTED%5D&this=test",
 		});
 	});
 });

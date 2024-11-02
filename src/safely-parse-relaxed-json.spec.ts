@@ -7,6 +7,12 @@ describe("Safely parse JSON", () => {
 		).toBe(false);
 	});
 
+	test("should return false if jiberish is passed", () => {
+		expect(safelyParseRelaxedJson("fesfefejibfejkebsjbifbfibesiufbubseu")).toBe(
+			false,
+		);
+	});
+
 	test("should return an object if actual JSON", () => {
 		const data = '[{ "email": "hello@gmail.com" }]';
 		const result = safelyParseRelaxedJson(data);
