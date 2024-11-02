@@ -18,6 +18,7 @@
 			"require": "./dist/index.cjs"
 		}
 	},
+	"files": ["dist/"],
 	"keywords": [
 		"blacklist",
 		"sensitive",
