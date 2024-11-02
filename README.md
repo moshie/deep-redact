@@ -26,14 +26,14 @@ const data = {
 	email: "hello@test.com",
 	password: "123456",
 	dontReactMe: "123456",
+    jsonString: '{ "email": "hello@test.com"}',
+    url: "https://cv.moshie.dev/redactor?this=test&password=12345&email=hello@test.com",
 };
 
 const result = redact(data, {
 	list: ["email", "password"],
     strict: true,
     redactString: "[REDACTED]",
-    jsonString: '{ "email": "hello@test.com"}',
-    url: "https://cv.moshie.dev/redactor?this=test&password=12345&email=hello@test.com",
 });
 
 console.log(result);
