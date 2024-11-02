@@ -2,6 +2,8 @@
 
 Deep redact is a package that recursively redacts sensitive data from JavaScript primitives based on a list of keys.
 
+> ⚠️ This package is ESM only.
+
 ## Features
 
 - Redaction of data from strings, objects, classes, maps, sets, arrays, and symbols

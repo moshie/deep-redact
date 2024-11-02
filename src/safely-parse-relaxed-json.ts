@@ -1,8 +1,8 @@
-import { parse } from "relaxed-json";
+import relaxedJson from "relaxed-json";
 
 export const safelyParseRelaxedJson = (str: string) => {
 	try {
-		const obj = parse(str);
+		const obj = relaxedJson.parse(str);
 
 		if (typeof obj !== "object") {
 			return false;

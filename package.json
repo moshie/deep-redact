@@ -3,24 +3,22 @@
 	"version": "1.0.3",
 	"description": "Deeply redact sensitive data from JS primitives",
 	"scripts": {
-		"build": "tsup src/index.ts --format esm,cjs --dts",
+		"build": "tsup src/index.ts --format esm --dts",
 		"release": "pnpm build && changeset publish",
 		"coverage": "vitest run --coverage",
 		"test": "vitest --typecheck",
 		"lint": "biome lint --write src/",
 		"format": "biome format src/",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit",
+		"clean": "rimraf dist"
 	},
 	"type": "module",
 	"exports": {
 		".": {
-			"import": "./dist/index.js",
-			"require": "./dist/index.cjs"
+			"default": "./dist/index.js"
 		}
 	},
-	"files": [
-		"dist/"
-	],
+	"files": ["dist/"],
 	"keywords": [
 		"blacklist",
 		"sensitive",
@@ -47,6 +45,7 @@
 		"vitest": "^2.1.4"
 	},
 	"devDependencies": {
+		"rimraf": "^6.0.1",
 		"@biomejs/biome": "1.9.4",
 		"@types/is-url": "^1.2.32",
 		"@types/relaxed-json": "^1.0.4",
