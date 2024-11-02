@@ -37,7 +37,17 @@ const result = redact(data, {
 });
 
 console.log(result);
-// { email: "[REDACTED]", password: "[REDACTED]", dontReactMe: "123456", jsonString: { email: "[REDACTED]"}, url: "https://cv.moshie.dev/redactor?email=%5BREDACTED%5D&password=%5BREDACTED%5D&this=test" }
+/**
+ * {
+ *   email: "[REDACTED]",
+ *   password: "[REDACTED]",
+ *   dontReactMe: "123456",
+ *   jsonString: {
+ *     email: "[REDACTED]"
+ *   },
+ *   url: "https://cv.moshie.dev/redactor?email=%5BREDACTED%5D&password=%5BREDACTED%5D&this=test"
+ * }
+ */
 ```
 
 ## Options
