@@ -1,6 +1,13 @@
 # `deep-redact`
 
-Deep redact is a library that allows you to redact sensitive data from objects. It uses a list of keys to redact the data and supports strict mode to throw an error if the data is not redacted.
+Deep redact is a library that allows you to recursively redact sensitive data from objects. It uses a list of keys to redact the data.
+
+## Features
+
+- Recursively redact data from strings, objects, maps, sets, arrays, and symbols
+- Supports strict mode to throw an error or return original data in the event of an error.
+- Redact data from JSON strings
+- Redact data from URLs
 
 ## Installation
 
@@ -23,10 +30,12 @@ const result = redact(data, {
 	list: ["email", "password"],
     strict: true,
     redactString: "[REDACTED]",
+    jsonString: '{ "email": "hello@test.com"}',
+    url: "https://cv.moshie.dev/redactor?this=test&password=12345&email=hello@test.com",
 });
 
 console.log(result);
-// { email: "[REDACTED]", password: "[REDACTED]", dontReactMe: "123456" }
+// { email: "[REDACTED]", password: "[REDACTED]", dontReactMe: "123456", jsonString: { email: "[REDACTED]"}, url: "https://cv.moshie.dev/redactor?email=%5BREDACTED%5D&password=%5BREDACTED%5D&this=test" }
 ```
 
 ## Options
