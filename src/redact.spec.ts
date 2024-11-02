@@ -1,5 +1,5 @@
+import { expectedTestObject, testObject } from "./fixtures/examples";
 import { redact } from "./index";
-import { testObject, expectedTestObject } from "./fixtures/examples";
 
 describe("redact", () => {
 	test("should return the data if no keys are passed", () => {
@@ -307,5 +307,49 @@ describe("redact", () => {
 		expect(result).toEqual({
 			params: "email=%5BREDACTED%5D&password=%5BREDACTED%5D&this=test",
 		});
+	});
+
+	test("should throw an error if strict is true and the data is not redacted", () => {
+		const data = {
+			email: "hello@test.com",
+			password: "123456",
+			dontReactMe: "123456",
+		};
+		vi.spyOn(JSON, "stringify").mockImplementationOnce(() => {
+			throw new Error("invalid json");
+		});
+		expect(() =>
+			redact(data, { list: ["email"], strict: true }),
+		).toThrowError();
+	});
+
+	test("should not throw an error if strict is false and the data is not redacted", () => {
+		const data = {
+			email: "hello@test.com",
+			password: "123456",
+			dontReactMe: "123456",
+		};
+		vi.spyOn(JSON, "parse").mockImplementationOnce(() => {
+			throw new Error("invalid json");
+		});
+		expect(() =>
+			redact(data, { list: ["email"], strict: false }),
+		).not.toThrowError();
+	});
+
+	test("should return the original data if empty list is passed", () => {
+		const data = {
+			email: "hello@test.com",
+			password: "123456",
+			dontReactMe: "123456",
+		};
+		const result = redact(data, { list: [] });
+		expect(result).toEqual(data);
+	});
+
+	test("should return the original object if the object is falsy", () => {
+		const data = null;
+		const result = redact(data, { list: ["email"] });
+		expect(result).toEqual(data);
 	});
 });

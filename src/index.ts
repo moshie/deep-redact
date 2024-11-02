@@ -1,5 +1,5 @@
-import { replacer } from "./replacer";
-import type { RedactOptions, Data } from "./types";
+import { replacer as replace } from "./replacer";
+import type { Data, RedactOptions } from "./types";
 
 export const redact = (data: Data, options: RedactOptions) => {
 	const { list = [], strict = false } = options;
@@ -12,14 +12,15 @@ export const redact = (data: Data, options: RedactOptions) => {
 	}
 
 	try {
-		const raw = JSON.stringify(data, replacer(options));
+		const raw = JSON.stringify(data, replace(options));
 		return JSON.parse(raw);
 	} catch (e) {
 		if (strict) {
 			throw e;
 		}
 
-		console.log("[CIRCULAR]", e);
 		return data;
 	}
 };
+
+export const replacer = replace;
