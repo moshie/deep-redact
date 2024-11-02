@@ -28,6 +28,23 @@ export const replacer =
 		}
 
 		/**
+		 * Return Arrays
+		 */
+		if (Array.isArray(data)) {
+			return data;
+		}
+
+		/**
+		 * Convert Map to object or Set to Array
+		 */
+		if (data instanceof Map || data instanceof Set) {
+			return redact(
+				data instanceof Set ? Array.from(data) : Object.fromEntries(data),
+				options,
+			);
+		}
+
+		/**
 		 * Handle Strings, HTML, JSON, YML, URLs etc
 		 */
 		if (typeof data === "string") {
@@ -57,23 +74,6 @@ export const replacer =
 			}
 
 			return data;
-		}
-
-		/**
-		 * Return Arrays
-		 */
-		if (Array.isArray(data)) {
-			return data;
-		}
-
-		/**
-		 * Convert Map to object or Set to Array
-		 */
-		if (data instanceof Map || data instanceof Set) {
-			return redact(
-				data instanceof Set ? Array.from(data) : Object.fromEntries(data),
-				options,
-			);
 		}
 
 		/**
