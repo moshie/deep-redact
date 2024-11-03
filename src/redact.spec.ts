@@ -292,7 +292,7 @@ describe("redact", () => {
 			list: ["password", "email"],
 		});
 		expect(result).toEqual({
-			url: "https://cv.moshie.dev/redactor?email=%5BREDACTED%5D&password=%5BREDACTED%5D&this=test",
+			url: "https://cv.moshie.dev/redactor?this=test&password=[REDACTED]&email=[REDACTED]",
 		});
 	});
 
@@ -305,7 +305,7 @@ describe("redact", () => {
 			list: ["email", "password"],
 		});
 		expect(result).toEqual({
-			params: "email=%5BREDACTED%5D&password=%5BREDACTED%5D&this=test",
+			params: "this=test&password=[REDACTED]&email=[REDACTED]",
 		});
 	});
 

@@ -1,11 +1,11 @@
+import qs from "qs";
 import { redact } from ".";
-import queryString from "query-string";
-import { isPlainObject } from "./is-plain-object";
 import { canBeRedacted } from "./can-be-redacted";
-import type { RedactOptions, Data } from "./types";
-import { safelyParseUrl } from "./safely-parse-url";
+import { isPlainObject } from "./is-plain-object";
 import { safelyConvertToObject } from "./safely-convert-to-object";
 import { safelyParseRelaxedJson } from "./safely-parse-relaxed-json";
+import { safelyParseUrl } from "./safely-parse-url";
+import type { Data, RedactOptions } from "./types";
 
 export const replacer =
 	(options: RedactOptions) => (_key: string, data: Data) => {
@@ -63,13 +63,16 @@ export const replacer =
 					const clone = { ...result.parsedUrl };
 					clone.query = redact(result.parsedUrl.query, options);
 
-					return queryString.stringifyUrl(clone);
+					const u = new URL(clone.url);
+					u.search = qs.stringify(clone.query, { encode: false });
+
+					return u.href;
 				}
 
 				if (result.parsedQuery) {
 					const clone = redact(result.parsedQuery, options);
 
-					return queryString.stringify(clone);
+					return qs.stringify(clone, { encode: false });
 				}
 			}
 

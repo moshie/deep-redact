@@ -3,7 +3,7 @@
 	"version": "1.0.5",
 	"description": "Deeply redact sensitive data from JS primitives",
 	"scripts": {
-		"build": "tsup src/index.ts --format esm --dts",
+		"build": "tsup src/index.ts --format esm,cjs --dts",
 		"release": "pnpm build && changeset publish",
 		"coverage": "vitest run --coverage",
 		"test": "vitest --typecheck",
@@ -14,11 +14,12 @@
 	},
 	"type": "module",
 	"exports": {
-		".": "./dist/index.js"
+		".": {
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		}
 	},
-	"files": [
-		"dist/"
-	],
+	"files": ["dist/"],
 	"keywords": [
 		"blacklist",
 		"sensitive",
@@ -38,20 +39,21 @@
 	},
 	"license": "MIT",
 	"dependencies": {
-		"@changesets/cli": "^2.27.9",
 		"is-url": "^1.2.4",
-		"query-string": "^9.1.1",
+		"qs": "^6.13.0",
 		"relaxed-json": "^1.0.3"
 	},
 	"devDependencies": {
-		"vitest": "^2.1.4",
-		"rimraf": "^6.0.1",
+		"@changesets/cli": "^2.27.9",
 		"@biomejs/biome": "1.9.4",
 		"@types/is-url": "^1.2.32",
+		"@types/qs": "^6.9.16",
 		"@types/relaxed-json": "^1.0.4",
 		"@vitest/coverage-v8": "2.1.4",
 		"lefthook": "^1.8.2",
+		"rimraf": "^6.0.1",
 		"tsup": "^8.3.5",
-		"typescript": "^5.6.3"
+		"typescript": "^5.6.3",
+		"vitest": "^2.1.4"
 	}
 }
