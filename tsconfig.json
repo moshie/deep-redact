@@ -4,7 +4,7 @@
 		"target": "ESNext",
 		"moduleResolution": "Bundler",
 		"module": "ESNext",
-		"lib": ["ESNext"],
+		"lib": ["ESNext", "DOM"],
 		"skipLibCheck": true,
 		"esModuleInterop": true,
 		"types": ["vitest/globals"]

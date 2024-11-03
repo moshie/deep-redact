@@ -1,14 +1,29 @@
 import isUrl from "is-url";
-import queryString from "query-string";
+import qs from "qs";
 
 export const safelyParseUrl = (data: string) => {
 	try {
-		const urlTest = isUrl(data);
+		const testUrl = isUrl(data);
 		const queryStringRegex = /([^=&?]+)=([^&]+)/g;
 
-		const parsedUrl = urlTest ? queryString.parseUrl(data) : null;
+		let parsedUrl = null;
+
+		if (testUrl) {
+			const url = new URL(data);
+
+			const query = qs.parse(url.search, { ignoreQueryPrefix: true });
+			url.search = "";
+
+			parsedUrl = {
+				url: url.href,
+				query,
+			};
+		}
+
 		const parsedQuery =
-			!urlTest && queryStringRegex.test(data) ? queryString.parse(data) : null;
+			!testUrl && queryStringRegex.test(data)
+				? qs.parse(data, { ignoreQueryPrefix: true })
+				: null;
 
 		if (!parsedQuery && !parsedUrl) {
 			throw new Error("invalid query string");

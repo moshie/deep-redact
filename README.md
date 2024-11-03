@@ -2,8 +2,6 @@
 
 Deep redact is a package that recursively redacts sensitive data from JavaScript primitives based on a list of keys.
 
-> ⚠️ This package is ESM only.
-
 ## Features
 
 - Redaction of data from strings, objects, classes, maps, sets, arrays, and symbols
@@ -23,15 +21,15 @@ npm install deep-redact
 import { redact } from "deep-redact";
 
 const data = {
-	email: "hello@test.com",
-	password: "123456",
-	dontReactMe: "123456",
+    email: "hello@test.com",
+    password: "123456",
+    dontReactMe: "123456",
     jsonString: '{ "email": "hello@test.com"}',
     url: "https://cv.moshie.dev/redactor?this=test&password=12345&email=hello@test.com",
 };
 
 const result = redact(data, {
-	list: ["email", "password"],
+    list: ["email", "password"],
     strict: true,
     redactString: "[REDACTED]",
 });
@@ -45,9 +43,46 @@ console.log(result);
  *   jsonString: {
  *     email: "[REDACTED]"
  *   },
- *   url: "https://cv.moshie.dev/redactor?email=%5BREDACTED%5D&password=%5BREDACTED%5D&this=test"
+ *   url: "https://cv.moshie.dev/redactor?email=[REDACTED]&password=[REDACTED]&this=test"
  * }
  */
+```
+
+## Replacer
+
+We also expose a replacer function that can be used with `JSON.stringify` and `JSON.parse` the redactor does this behind the scenes but you can use it if you want to.
+
+```ts
+import { replacer } from "deep-redact";
+
+const data = {
+    email: "hello@test.com",
+    password: "123456",
+    dontReactMe: "123456",
+};
+
+const replacer = replacer({
+    list: ["email", "password"],
+    strict: true,
+    redactString: "[REDACTED]",
+})
+
+try {
+    const raw = JSON.stringify(data, replacer);
+
+    const result = JSON.parse(raw);
+
+    console.log(result);
+    /**
+     * "{
+     *   "email": "[REDACTED]",
+     *   password: "[REDACTED]",
+     *   dontReactMe: "123456",
+     * }"
+     */
+} catch (e) {
+    console.log(e);
+}
 ```
 
 ## Options
