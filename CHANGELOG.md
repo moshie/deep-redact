@@ -1,5 +1,11 @@
 # deep-redact
 
+## 1.0.6
+
+### Patch Changes
+
+- 016e0b5: Remove query-string in favour of qs so I can compile in CJS
+
 ## 1.0.5
 
 ### Patch Changes
