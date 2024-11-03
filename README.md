@@ -43,7 +43,7 @@ console.log(result);
  *   jsonString: {
  *     email: "[REDACTED]"
  *   },
- *   url: "https://cv.moshie.dev/redactor?email=%5BREDACTED%5D&password=%5BREDACTED%5D&this=test"
+ *   url: "https://cv.moshie.dev/redactor?email=[REDACTED]&password=[REDACTED]&this=test"
  * }
  */
 ```
