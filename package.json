@@ -1,6 +1,6 @@
 {
 	"name": "deep-redact",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "Deeply redact sensitive data from JS primitives",
 	"repository": {
 		"type": "git",
@@ -23,7 +23,9 @@
 			"require": "./dist/index.cjs"
 		}
 	},
-	"files": ["dist/"],
+	"files": [
+		"dist/"
+	],
 	"keywords": [
 		"blacklist",
 		"sensitive",
