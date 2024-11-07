@@ -1,5 +1,11 @@
 # deep-redact
 
+## 1.0.7
+
+### Patch Changes
+
+- 5dc33c9: Update package json to include repository and bugs properties
+
 ## 1.0.6
 
 ### Patch Changes
