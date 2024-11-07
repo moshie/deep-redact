@@ -2,6 +2,10 @@
 	"name": "deep-redact",
 	"version": "1.0.6",
 	"description": "Deeply redact sensitive data from JS primitives",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/moshie/deep-redact.git"
+	},
 	"scripts": {
 		"build": "tsup src/index.ts --format esm,cjs --dts",
 		"release": "pnpm build && changeset publish",
@@ -19,9 +23,7 @@
 			"require": "./dist/index.cjs"
 		}
 	},
-	"files": [
-		"dist/"
-	],
+	"files": ["dist/"],
 	"keywords": [
 		"blacklist",
 		"sensitive",
@@ -34,6 +36,11 @@
 		"data",
 		"json"
 	],
+	"bugs": {
+		"url": "https://github.com/moshie/deep-redact/issues",
+		"email": "hello@moshie.dev"
+	},
+	"homepage": "https://github.com/moshie/deep-redact",
 	"author": {
 		"name": "David Hewitt",
 		"email": "hello@moshie.dev",
