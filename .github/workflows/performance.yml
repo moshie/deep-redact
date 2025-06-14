@@ -45,5 +45,4 @@ jobs:
           gh-pages-branch: gh-pages
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: true
-          external-data-json-path: false
           fail-on-alert: true
