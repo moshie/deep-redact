@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749898035064,
+  "lastUpdate": 1749899481069,
   "repoUrl": "https://github.com/moshie/deep-redact",
   "entries": {
     "Deep Redact JS Benchmark": [
@@ -31,6 +31,37 @@ window.BENCHMARK_DATA = {
             "range": "±1.01%",
             "unit": "ops/sec",
             "extra": "87 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "moshie@users.noreply.github.com",
+            "name": "David Hewitt",
+            "username": "moshie"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "83325229fbabfe5e49c55b5394efe13ff1243f12",
+          "message": "Merge pull request #33 from moshie/update-perf-documentation\n\nadd perf benchmark documentation",
+          "timestamp": "2025-06-14T12:10:48+01:00",
+          "tree_id": "ab0365d9243099852c5353c5eb778f6cc49d91cf",
+          "url": "https://github.com/moshie/deep-redact/commit/83325229fbabfe5e49c55b5394efe13ff1243f12"
+        },
+        "date": 1749899480231,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "Redact#redact",
+            "value": 9002,
+            "range": "±0.86%",
+            "unit": "ops/sec",
+            "extra": "90 samples"
           }
         ]
       }
