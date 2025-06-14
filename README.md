@@ -92,3 +92,9 @@ try {
 `list` - An array of keys to redact. Default is `[]`.
 
 `strict` - A boolean to determine if the data should throw an error or not. Default is `false`.
+
+## Benchmark
+
+We have a benchmark that runs the redaction function and outputs the results to github pages.
+
+[See the results here](https://moshie.github.io/deep-redact/dev/bench/)
