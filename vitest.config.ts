@@ -11,7 +11,7 @@ export default defineConfig({
 				functions: 100,
 				statements: 100,
 			},
-			include: ["./src"],
+			include: ["./src/**/*.ts"],
 		},
 		globals: true,
 		passWithNoTests: true,
