@@ -7,6 +7,7 @@
 		"url": "git+https://github.com/moshie/deep-redact.git"
 	},
 	"scripts": {
+		"bench": "pnpm build && node benchmark.mjs",
 		"build": "tsup src/index.ts --format esm,cjs --dts",
 		"release": "pnpm build && changeset publish",
 		"coverage": "vitest run --coverage",
@@ -23,9 +24,7 @@
 			"require": "./dist/index.cjs"
 		}
 	},
-	"files": [
-		"dist/"
-	],
+	"files": ["dist/"],
 	"keywords": [
 		"blacklist",
 		"sensitive",
@@ -55,12 +54,14 @@
 		"relaxed-json": "^1.0.3"
 	},
 	"devDependencies": {
-		"@changesets/cli": "^2.29.4",
 		"@biomejs/biome": "^1.9.4",
+		"@changesets/cli": "^2.29.4",
+		"@types/benchmark": "^2.1.5",
 		"@types/is-url": "^1.2.32",
 		"@types/qs": "^6.14.0",
 		"@types/relaxed-json": "^1.0.4",
 		"@vitest/coverage-v8": "^3.2.3",
+		"benchmark": "^2.1.4",
 		"lefthook": "^1.11.13",
 		"rimraf": "^6.0.1",
 		"tsup": "^8.5.0",
@@ -71,10 +72,7 @@
 		"overrides": {
 			"cross-spawn": ">=7.0.6"
 		},
-		"onlyBuiltDependencies": [
-			"lefthook",
-			"esbuild"
-		]
+		"onlyBuiltDependencies": ["lefthook", "esbuild"]
 	},
 	"packageManager": "pnpm@10.12.1"
 }
