@@ -39,7 +39,11 @@ jobs:
       - name: Store benchmark result
         uses: benchmark-action/github-action-benchmark@v1
         with:
+          name: Deep Redact JS Benchmark
           tool: 'benchmarkjs'
           output-file-path: output.txt
+          gh-pages-branch: gh-pages
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: true
           external-data-json-path: ./cache/benchmark-data.json
           fail-on-alert: true
