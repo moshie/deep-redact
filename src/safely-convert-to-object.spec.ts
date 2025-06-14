@@ -16,7 +16,7 @@ describe("# Safely convert to object", () => {
 	});
 
 	test("should return false if unable to convert the value", () => {
-		// @ts-ignore Testing if the JSON functions where unable to stringify / parse the value
+		// @ts-expect-error Testing if the JSON functions where unable to stringify / parse the value
 		expect(safelyConvertToObject(undefined)).toEqual(false);
 	});
 });

@@ -5,10 +5,17 @@ on:
     branches:
       - main
 
+permissions:
+    pull-requests: write
+    contents: read
+
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
+    strategy:
+        matrix:
+            node-version: [20, 22, 24]
     name: Static Checks
     runs-on: ubuntu-latest
     steps:
@@ -18,13 +25,12 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
-            version: 10.12.1
             run_install: false
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
 
       - name: Install dependencies
@@ -37,4 +43,8 @@ jobs:
         run: pnpm lint
 
       - name: Test
-        run: pnpm test
+        run: pnpm test --coverage.enabled true
+
+      - name: 'Report Coverage'
+        if: always()
+        uses:  davelosert/vitest-coverage-report-action@v2
