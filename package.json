@@ -1,6 +1,6 @@
 {
 	"name": "deep-redact",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "Deeply redact sensitive data from JS primitives",
 	"repository": {
 		"type": "git",
@@ -23,7 +23,9 @@
 			"require": "./dist/index.cjs"
 		}
 	},
-	"files": ["dist/"],
+	"files": [
+		"dist/"
+	],
 	"keywords": [
 		"blacklist",
 		"sensitive",
@@ -69,7 +71,10 @@
 		"overrides": {
 			"cross-spawn": ">=7.0.6"
 		},
-		"onlyBuiltDependencies": ["lefthook", "esbuild"]
+		"onlyBuiltDependencies": [
+			"lefthook",
+			"esbuild"
+		]
 	},
 	"packageManager": "pnpm@10.12.1"
 }

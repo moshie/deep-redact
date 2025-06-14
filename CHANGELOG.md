@@ -1,5 +1,14 @@
 # deep-redact
 
+## 1.0.8
+
+### Patch Changes
+
+- 061dc15: Fix vulnerability in cross-spawn
+- 4e8cdf9: Add Coverage reporting to pull requests fix documentation and update test to ts-expect-error
+- e96278b: Enable Dependabot
+- f2935ec: Update pnpm & node to latest in github actions
+
 ## 1.0.7
 
 ### Patch Changes
