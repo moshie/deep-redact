@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+    pull-requests: write
+    contents: read
+
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
@@ -37,4 +41,8 @@ jobs:
         run: pnpm lint
 
       - name: Test
-        run: pnpm test
+        run: pnpm test --coverage.enabled true
+
+      - name: 'Report Coverage'
+        if: always()
+        uses:  davelosert/vitest-coverage-report-action@v2
