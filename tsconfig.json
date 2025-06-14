@@ -9,6 +9,6 @@
 		"esModuleInterop": true,
 		"types": ["vitest/globals"]
 	},
-	"include": ["src/**/*.ts"],
+	"include": ["src/**/*.ts", "src/benchmark.js"],
 	"exclude": ["node_modules", "dist"]
 }
