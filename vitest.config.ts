@@ -11,7 +11,7 @@ export default defineConfig({
 				functions: 100,
 				statements: 100,
 			},
-			include: ["./src/**/*.ts"],
+			exclude: ["./benchmark.mjs", "./vitest.config.ts", "./dist"],
 		},
 		globals: true,
 		passWithNoTests: true,
