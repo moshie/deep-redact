@@ -91,4 +91,4 @@ try {
 
 `list` - An array of keys to redact. Default is `[]`.
 
-`strict` - A boolean to determine if the data should be redacted or not. Default is `false`.
+`strict` - A boolean to determine if the data should throw an error or not. Default is `false`.
