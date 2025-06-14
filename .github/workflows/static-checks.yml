@@ -13,6 +13,9 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
+    strategy:
+        matrix:
+            node-version: [20, 22, 24]
     name: Static Checks
     runs-on: ubuntu-latest
     steps:
@@ -27,7 +30,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
 
       - name: Install dependencies
