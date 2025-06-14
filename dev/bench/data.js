@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749899481069,
+  "lastUpdate": 1749901084745,
   "repoUrl": "https://github.com/moshie/deep-redact",
   "entries": {
     "Deep Redact JS Benchmark": [
@@ -62,6 +62,37 @@ window.BENCHMARK_DATA = {
             "range": "±0.86%",
             "unit": "ops/sec",
             "extra": "90 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "moshie@users.noreply.github.com",
+            "name": "David Hewitt",
+            "username": "moshie"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c5672fbe4877b0d75d19837c2d74e81f9d6359ce",
+          "message": "Merge pull request #34 from moshie/enforce-coverage-threshold\n\nEnforce threshold for coverage",
+          "timestamp": "2025-06-14T12:37:37+01:00",
+          "tree_id": "dfb848868af30d4b32a9ba4fc41d22417abeef66",
+          "url": "https://github.com/moshie/deep-redact/commit/c5672fbe4877b0d75d19837c2d74e81f9d6359ce"
+        },
+        "date": 1749901084372,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "Redact#redact",
+            "value": 9463,
+            "range": "±0.86%",
+            "unit": "ops/sec",
+            "extra": "87 samples"
           }
         ]
       }
