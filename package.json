@@ -66,6 +66,9 @@
 		"vitest": "^3.2.3"
 	},
 	"pnpm": {
+		"overrides": {
+			"cross-spawn": ">=7.0.6"
+		},
 		"onlyBuiltDependencies": ["lefthook", "esbuild"]
 	},
 	"packageManager": "pnpm@10.12.1"
