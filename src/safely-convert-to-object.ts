@@ -4,7 +4,7 @@ export const safelyConvertToObject = (
 	try {
 		const raw = JSON.stringify(data);
 		return JSON.parse(raw);
-	} catch (error) {
+	} catch (_error) {
 		return false;
 	}
 };
