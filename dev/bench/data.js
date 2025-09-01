@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1749901084745,
+  "lastUpdate": 1756749212342,
   "repoUrl": "https://github.com/moshie/deep-redact",
   "entries": {
     "Deep Redact JS Benchmark": [
@@ -93,6 +93,37 @@ window.BENCHMARK_DATA = {
             "range": "±0.86%",
             "unit": "ops/sec",
             "extra": "87 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "moshie@users.noreply.github.com",
+            "name": "David Hewitt",
+            "username": "moshie"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a3f5670fd5b1f97c527c9143850a77682aa564b9",
+          "message": "Merge pull request #36 from moshie/dependabot/npm_and_yarn/development-dependencies-70e89e7b63\n\nBump the development-dependencies group across 1 directory with 6 updates",
+          "timestamp": "2025-09-01T18:52:55+01:00",
+          "tree_id": "55cf152d50ce37e39c839447553279619cdbb7d4",
+          "url": "https://github.com/moshie/deep-redact/commit/a3f5670fd5b1f97c527c9143850a77682aa564b9"
+        },
+        "date": 1756749211394,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "Redact#redact",
+            "value": 8596,
+            "range": "±3.91%",
+            "unit": "ops/sec",
+            "extra": "84 samples"
           }
         ]
       }
