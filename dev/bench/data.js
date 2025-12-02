@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1756749212342,
+  "lastUpdate": 1764682629234,
   "repoUrl": "https://github.com/moshie/deep-redact",
   "entries": {
     "Deep Redact JS Benchmark": [
@@ -124,6 +124,37 @@ window.BENCHMARK_DATA = {
             "range": "±3.91%",
             "unit": "ops/sec",
             "extra": "84 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "moshie@users.noreply.github.com",
+            "name": "David Hewitt",
+            "username": "moshie"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "57898c01b9857e9cf7973ed9e69f27b56a8ba999",
+          "message": "Merge pull request #41 from moshie/add-security-policy\n\nEnhance security policy with reporting and response details",
+          "timestamp": "2025-12-02T13:36:38Z",
+          "tree_id": "1549d9ff013cd3f7aad7564369e9f37b47ed6b31",
+          "url": "https://github.com/moshie/deep-redact/commit/57898c01b9857e9cf7973ed9e69f27b56a8ba999"
+        },
+        "date": 1764682628735,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "Redact#redact",
+            "value": 9154,
+            "range": "±0.92%",
+            "unit": "ops/sec",
+            "extra": "90 samples"
           }
         ]
       }
