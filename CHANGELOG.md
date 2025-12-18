@@ -1,5 +1,11 @@
 # deep-redact
 
+## 1.0.9
+
+### Patch Changes
+
+- 8be4183: update pacakges to latest version
+
 ## 1.0.8
 
 ### Patch Changes
