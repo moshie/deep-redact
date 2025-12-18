@@ -1,5 +1,6 @@
 import { expectedTestObject, testObject } from "./fixtures/examples";
 import { redact } from "./index";
+import * as safelyParseUrl from "./safely-parse-url";
 
 describe("redact", () => {
 	test("should return the data if no keys are passed", () => {
@@ -294,6 +295,21 @@ describe("redact", () => {
 		expect(result).toEqual({
 			url: "https://cv.moshie.dev/redactor?this=test&password=[REDACTED]&email=[REDACTED]",
 		});
+	});
+
+	test("should take the else path when url parsing fails", () => {
+		const spy = vi
+			.spyOn(safelyParseUrl, "safelyParseUrl")
+			.mockReturnValue({ parsedQuery: null, parsedUrl: null });
+		const data = {
+			url: "ftp://not-a-url.invalid",
+		};
+		const result = redact(data, {
+			redactString: "[REDACTED]",
+			list: ["password", "email"],
+		});
+		expect(result).toEqual(data);
+		spy.mockRestore();
 	});
 
 	test("should redact just query parameters", () => {
