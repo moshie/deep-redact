@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1766088548151,
+  "lastUpdate": 1766089928236,
   "repoUrl": "https://github.com/moshie/deep-redact",
   "entries": {
     "Deep Redact JS Benchmark": [
@@ -217,6 +217,37 @@ window.BENCHMARK_DATA = {
             "range": "±2.16%",
             "unit": "ops/sec",
             "extra": "84 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "moshie@users.noreply.github.com",
+            "name": "David Hewitt",
+            "username": "moshie"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9fc5f39d5b843aef06377b2ebd9df47a10d969e3",
+          "message": "Merge pull request #44 from moshie/fix-ci\n\nFix CI to use OIDC",
+          "timestamp": "2025-12-18T20:31:43Z",
+          "tree_id": "3ec0296ca787d4979c353dcb89ab706bb17b170b",
+          "url": "https://github.com/moshie/deep-redact/commit/9fc5f39d5b843aef06377b2ebd9df47a10d969e3"
+        },
+        "date": 1766089927747,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "Redact#redact",
+            "value": 9194,
+            "range": "±0.79%",
+            "unit": "ops/sec",
+            "extra": "88 samples"
           }
         ]
       }
