@@ -23,7 +23,7 @@ export const replacer =
 		 * If the string can be converted to a number we return it back as a string
 		 * so json parse doesn't get a hold of it and convert it to a number
 		 */
-		if (typeof data === "string" && !Number.isNaN(Number.parseInt(data))) {
+		if (typeof data === "string" && !Number.isNaN(Number.parseInt(data, 10))) {
 			return data;
 		}
 

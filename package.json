@@ -11,7 +11,8 @@
 		"build": "tsup src/index.ts --format esm,cjs --dts",
 		"release": "pnpm build && changeset publish",
 		"coverage": "vitest run --coverage",
-		"test": "vitest --typecheck",
+		"test": "vitest run --typecheck",
+		"test:watch": "vitest --typecheck",
 		"lint": "biome lint --write src/",
 		"format": "biome format src/",
 		"typecheck": "tsc --noEmit",
@@ -24,7 +25,9 @@
 			"require": "./dist/index.cjs"
 		}
 	},
-	"files": ["dist/"],
+	"files": [
+		"dist/"
+	],
 	"keywords": [
 		"blacklist",
 		"sensitive",
@@ -54,25 +57,25 @@
 		"relaxed-json": "^1.0.3"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.1.3",
-		"@changesets/cli": "^2.29.4",
+		"@biomejs/biome": "^2.3.10",
+		"@changesets/cli": "^2.29.8",
 		"@types/benchmark": "^2.1.5",
 		"@types/is-url": "^1.2.32",
 		"@types/qs": "^6.14.0",
 		"@types/relaxed-json": "^1.0.4",
-		"@vitest/coverage-v8": "^3.2.3",
+		"@vitest/coverage-v8": "^4.0.16",
 		"benchmark": "^2.1.4",
-		"lefthook": "^1.11.13",
-		"rimraf": "^6.0.1",
-		"tsup": "^8.5.0",
-		"typescript": "^5.8.3",
-		"vitest": "^3.2.3"
+		"lefthook": "^2.0.12",
+		"rimraf": "^6.1.2",
+		"tsup": "^8.5.1",
+		"typescript": "^5.9.3",
+		"vitest": "^4.0.16"
 	},
 	"pnpm": {
-		"overrides": {
-			"cross-spawn": ">=7.0.6"
-		},
-		"onlyBuiltDependencies": ["lefthook", "esbuild"]
+		"onlyBuiltDependencies": [
+			"lefthook",
+			"esbuild"
+		]
 	},
-	"packageManager": "pnpm@10.12.1"
+	"packageManager": "pnpm@10.26.0"
 }
