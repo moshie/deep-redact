@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1766089967831,
+  "lastUpdate": 1766090324021,
   "repoUrl": "https://github.com/moshie/deep-redact",
   "entries": {
     "Deep Redact JS Benchmark": [
@@ -279,6 +279,37 @@ window.BENCHMARK_DATA = {
             "range": "±1.05%",
             "unit": "ops/sec",
             "extra": "86 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "moshie@users.noreply.github.com",
+            "name": "David Hewitt",
+            "username": "moshie"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1a001f938256d6c772c4d9f9be6cca373a8a3004",
+          "message": "Merge pull request #46 from moshie/update-performance-workflow-permissions\n\nPotential fix for code scanning alert no. 1: Workflow does not contain permissions",
+          "timestamp": "2025-12-18T20:38:11Z",
+          "tree_id": "e902dbe6deebc488f5dc59a98cf41cc2590b357a",
+          "url": "https://github.com/moshie/deep-redact/commit/1a001f938256d6c772c4d9f9be6cca373a8a3004"
+        },
+        "date": 1766090322930,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "Redact#redact",
+            "value": 8832,
+            "range": "±3.35%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
           }
         ]
       }
