@@ -1,5 +1,11 @@
 # deep-redact
 
+## 1.0.10
+
+### Patch Changes
+
+- ad510f4: Fix the CI to enable OIDC
+
 ## 1.0.9
 
 ### Patch Changes
