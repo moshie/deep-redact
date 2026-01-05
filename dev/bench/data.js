@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1766090324021,
+  "lastUpdate": 1767623909627,
   "repoUrl": "https://github.com/moshie/deep-redact",
   "entries": {
     "Deep Redact JS Benchmark": [
@@ -310,6 +310,37 @@ window.BENCHMARK_DATA = {
             "range": "±3.35%",
             "unit": "ops/sec",
             "extra": "89 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "moshie@users.noreply.github.com",
+            "name": "David Hewitt",
+            "username": "moshie"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "63b2a578377e95fcef937e0d9873ddb538e9902c",
+          "message": "Merge pull request #47 from moshie/dependabot/npm_and_yarn/production-dependencies-2b901f0e0d\n\nBump qs from 6.14.0 to 6.14.1 in the production-dependencies group",
+          "timestamp": "2026-01-05T14:37:58Z",
+          "tree_id": "7ee98a613653b1218a04ed4cb831164161088759",
+          "url": "https://github.com/moshie/deep-redact/commit/63b2a578377e95fcef937e0d9873ddb538e9902c"
+        },
+        "date": 1767623908722,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "Redact#redact",
+            "value": 9149,
+            "range": "±0.75%",
+            "unit": "ops/sec",
+            "extra": "84 samples"
           }
         ]
       }
