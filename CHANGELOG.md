@@ -1,5 +1,11 @@
 # deep-redact
 
+## 1.0.12
+
+### Patch Changes
+
+- 02e3156: update packagejson for the qs dependency
+
 ## 1.0.11
 
 ### Patch Changes
