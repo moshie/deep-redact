@@ -1,5 +1,11 @@
 # deep-redact
 
+## 1.0.11
+
+### Patch Changes
+
+- e83a6c6: Bump qs from 6.14.0 to 6.14.1 in the production-dependencies group
+
 ## 1.0.10
 
 ### Patch Changes
