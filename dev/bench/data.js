@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1767624060201,
+  "lastUpdate": 1767627640453,
   "repoUrl": "https://github.com/moshie/deep-redact",
   "entries": {
     "Deep Redact JS Benchmark": [
@@ -372,6 +372,37 @@ window.BENCHMARK_DATA = {
             "range": "±1.12%",
             "unit": "ops/sec",
             "extra": "96 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "moshie@users.noreply.github.com",
+            "name": "David Hewitt",
+            "username": "moshie"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "03f8334c80c5677a72ab4083d26328e51930aee2",
+          "message": "Merge pull request #51 from moshie/fix-dependency\n\nfix package json for the qs dependency",
+          "timestamp": "2026-01-05T15:40:05Z",
+          "tree_id": "85d7313de8c11a5c9a8f938ab43a05a8578214cb",
+          "url": "https://github.com/moshie/deep-redact/commit/03f8334c80c5677a72ab4083d26328e51930aee2"
+        },
+        "date": 1767627639422,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "Redact#redact",
+            "value": 8901,
+            "range": "±1.34%",
+            "unit": "ops/sec",
+            "extra": "85 samples"
           }
         ]
       }
