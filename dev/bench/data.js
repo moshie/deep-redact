@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1768736860412,
+  "lastUpdate": 1768739723412,
   "repoUrl": "https://github.com/moshie/deep-redact",
   "entries": {
     "Deep Redact JS Benchmark": [
@@ -525,6 +525,37 @@ window.BENCHMARK_DATA = {
             "name": "Redact#redact",
             "value": 9946,
             "range": "±2.36%",
+            "unit": "ops/sec",
+            "extra": "86 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "moshie@users.noreply.github.com",
+            "name": "David Hewitt",
+            "username": "moshie"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c08c6400110a56abde0843ad6e883d36b475fcad",
+          "message": "Merge pull request #56 from moshie/performance-improvements\n\nOptimize redaction performance with hybrid lookup strategy",
+          "timestamp": "2026-01-18T12:34:50Z",
+          "tree_id": "e97f99f10b7cf74d162b5995b98f6abdc3c66e63",
+          "url": "https://github.com/moshie/deep-redact/commit/c08c6400110a56abde0843ad6e883d36b475fcad"
+        },
+        "date": 1768739722526,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "Redact#redact",
+            "value": 8929,
+            "range": "±0.80%",
             "unit": "ops/sec",
             "extra": "86 samples"
           }
