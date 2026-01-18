@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1767628414791,
+  "lastUpdate": 1768736624899,
   "repoUrl": "https://github.com/moshie/deep-redact",
   "entries": {
     "Deep Redact JS Benchmark": [
@@ -465,6 +465,37 @@ window.BENCHMARK_DATA = {
             "range": "±0.86%",
             "unit": "ops/sec",
             "extra": "88 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "moshie@users.noreply.github.com",
+            "name": "David Hewitt",
+            "username": "moshie"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cab184276a115d49cd2708fae118a8158b1690d3",
+          "message": "Merge pull request #54 from moshie/update-dependencies\n\nUpdate deps and GHA workflows",
+          "timestamp": "2026-01-18T11:43:12Z",
+          "tree_id": "7625fb446c2fe6c3659a296e2eb42a152fd5b2af",
+          "url": "https://github.com/moshie/deep-redact/commit/cab184276a115d49cd2708fae118a8158b1690d3"
+        },
+        "date": 1768736623943,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "Redact#redact",
+            "value": 8878,
+            "range": "±1.15%",
+            "unit": "ops/sec",
+            "extra": "85 samples"
           }
         ]
       }
