@@ -1,5 +1,11 @@
 # deep-redact
 
+## 1.0.13
+
+### Patch Changes
+
+- 1bc1231: Pin and update dependencies also update GHA workflows
+
 ## 1.0.12
 
 ### Patch Changes
