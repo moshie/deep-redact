@@ -368,4 +368,53 @@ describe("redact", () => {
 		const result = redact(data, { list: ["email"] });
 		expect(result).toEqual(data);
 	});
+
+	test("should use Set for large redaction lists (>10 items)", () => {
+		const data = {
+			field1: "value1",
+			field2: "value2",
+			field3: "value3",
+			field4: "value4",
+			field5: "value5",
+			field6: "value6",
+			field7: "value7",
+			field8: "value8",
+			field9: "value9",
+			field10: "value10",
+			field11: "value11",
+			field12: "value12",
+			keepMe: "keepThis",
+		};
+		const result = redact(data, {
+			list: [
+				"field1",
+				"field2",
+				"field3",
+				"field4",
+				"field5",
+				"field6",
+				"field7",
+				"field8",
+				"field9",
+				"field10",
+				"field11",
+				"field12",
+			],
+		});
+		expect(result).toEqual({
+			field1: "[REDACTED]",
+			field2: "[REDACTED]",
+			field3: "[REDACTED]",
+			field4: "[REDACTED]",
+			field5: "[REDACTED]",
+			field6: "[REDACTED]",
+			field7: "[REDACTED]",
+			field8: "[REDACTED]",
+			field9: "[REDACTED]",
+			field10: "[REDACTED]",
+			field11: "[REDACTED]",
+			field12: "[REDACTED]",
+			keepMe: "keepThis",
+		});
+	});
 });

@@ -20,6 +20,24 @@ test.each([
 	[{ key: "email", value: Symbol("foo"), list: ["email"] }, false],
 	[{ key: "email", value: () => {}, list: ["email"] }, true],
 	[{ key: "email", value: new TestClass(), list: ["email"] }, true],
+	[
+		{
+			key: "email",
+			value: "password",
+			list: ["email"],
+			normalizedList: new Set(["email"]),
+		},
+		true,
+	],
+	[
+		{
+			key: "password",
+			value: "secret",
+			list: ["email"],
+			normalizedList: new Set(["email"]),
+		},
+		false,
+	],
 ])("canBeRedacted(%o) -> %s", (options, expected) => {
 	expect(canBeRedacted(options)).toBe(expected);
 });
