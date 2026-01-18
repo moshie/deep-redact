@@ -1,5 +1,11 @@
 # deep-redact
 
+## 1.0.14
+
+### Patch Changes
+
+- a88ff75: Update performance by 2.9%
+
 ## 1.0.13
 
 ### Patch Changes
