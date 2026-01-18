@@ -7,10 +7,16 @@ import { safelyParseRelaxedJson } from "./safely-parse-relaxed-json";
 import { safelyParseUrl } from "./safely-parse-url";
 import type { Data, RedactOptions } from "./types";
 
-export const replacer =
-	(options: RedactOptions) => (_key: string, data: Data) => {
-		const { list = [], redactString = "[REDACTED]" } = options;
+export const replacer = (options: RedactOptions) => {
+	const { list = [], redactString = "[REDACTED]" } = options;
+	// Only use Set for larger lists (threshold: 10 items)
+	// For small lists, array operations are faster
+	const normalizedList =
+		list.length > 10
+			? new Set(list.map((key) => key.toLowerCase()))
+			: undefined;
 
+	return (_key: string, data: Data) => {
 		/**
 		 * If the data has already been redacted we don't want to
 		 * try and convert it to an array by mistake i.e [REDACTED]
@@ -89,7 +95,12 @@ export const replacer =
 					data[key] = redact(data[key], options);
 				}
 
-				data[key] = canBeRedacted({ key, value: data[key], list })
+				data[key] = canBeRedacted({
+					key,
+					value: data[key],
+					list,
+					normalizedList,
+				})
 					? redactString
 					: data[key];
 			}
@@ -121,3 +132,4 @@ export const replacer =
 
 		return data;
 	};
+};

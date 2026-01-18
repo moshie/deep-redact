@@ -16,10 +16,12 @@ export type RedactOptions = {
 	list?: List;
 	strict?: boolean;
 	redactString?: string;
+	normalizedList?: Set<string>;
 };
 
 export type CanBeRedactedArgs = {
 	key: string;
 	value: DataTypes;
 	list: List;
+	normalizedList?: Set<string>;
 };

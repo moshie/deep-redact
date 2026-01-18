@@ -1,10 +1,12 @@
 import isUrl from "is-url";
 import qs from "qs";
 
+// Move regex outside function for better performance
+const queryStringRegex = /([^=&?]+)=([^&]+)/g;
+
 export const safelyParseUrl = (data: string) => {
 	try {
 		const testUrl = isUrl(data);
-		const queryStringRegex = /([^=&?]+)=([^&]+)/g;
 
 		let parsedUrl = null;
 
