@@ -1,5 +1,11 @@
 # deep-redact
 
+## 1.0.15
+
+### Patch Changes
+
+- 7472de7: Update packages and fix qs security vulnerability and swap to tsdown
+
 ## 1.0.14
 
 ### Patch Changes
