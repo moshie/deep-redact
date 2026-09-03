@@ -1,5 +1,11 @@
 # deep-redact
 
+## 1.0.16
+
+### Patch Changes
+
+- c6b00bf: updating dependencies
+
 ## 1.0.15
 
 ### Patch Changes
