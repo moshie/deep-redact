@@ -68,7 +68,7 @@
 		"lefthook": "^2.1.12",
 		"rimraf": "^6.1.3",
 		"tsdown": "^0.22.14",
-		"typescript": "^6.0.2",
+		"typescript": "^7.0.2",
 		"vitest": "^4.1.11"
 	},
 	"pnpm": {
