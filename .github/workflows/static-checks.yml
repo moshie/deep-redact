@@ -15,7 +15,7 @@ jobs:
   release:
     strategy:
         matrix:
-            node-version: [20, 22, 24]
+            node-version: [22, 24]
     name: Static Checks
     runs-on: ubuntu-latest
     steps:
