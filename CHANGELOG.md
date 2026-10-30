@@ -1,5 +1,11 @@
 # deep-redact
 
+## 1.0.17
+
+### Patch Changes
+
+- e6f889d: update QS to latest
+
 ## 1.0.16
 
 ### Patch Changes
