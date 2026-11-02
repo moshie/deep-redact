@@ -325,6 +325,42 @@ describe("redact", () => {
 		});
 	});
 
+	test("should redact every query string when several are redacted in a row", () => {
+		const data = {
+			first: "this=test&password=123456&email=test@email.com",
+			second: "password=hunter2",
+		};
+		const result = redact(data, {
+			redactString: "[REDACTED]",
+			list: ["email", "password"],
+		});
+		expect(result).toEqual({
+			first: "this=test&password=[REDACTED]&email=[REDACTED]",
+			second: "password=[REDACTED]",
+		});
+	});
+
+	test("should redact a large GraphQL query string quickly", () => {
+		// A ~28KB GraphQL query in a log line used to take ~2.5s to redact, blocking the event loop
+		const fragment =
+			"  page(filter: {slug: {eq: $pageSlug}}) { id slug title modular { __typename } }\n";
+		const data = {
+			request: {
+				data: {
+					query: `query Page($pageSlug: String) {\n${fragment.repeat(400)}}`,
+				},
+			},
+			password: "123456",
+		};
+
+		const start = performance.now();
+		const result = redact(data, { list: ["password"] });
+		const ms = performance.now() - start;
+
+		expect(result).toEqual({ ...data, password: "[REDACTED]" });
+		expect(ms).toBeLessThan(250);
+	});
+
 	test("should throw an error if strict is true and the data is not redacted", () => {
 		const data = {
 			email: "hello@test.com",
