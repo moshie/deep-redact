@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1768739809602,
+  "lastUpdate": 1793621527510,
   "repoUrl": "https://github.com/moshie/deep-redact",
   "entries": {
     "Deep Redact JS Benchmark": [
@@ -589,6 +589,37 @@ window.BENCHMARK_DATA = {
             "range": "±0.70%",
             "unit": "ops/sec",
             "extra": "88 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "moshie@users.noreply.github.com",
+            "name": "David Hewitt",
+            "username": "moshie"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d79ac67e2909238808ed08d0520f88747168dc40",
+          "message": "Merge pull request #73 from moshie/fix/benchmark-workflow\n\nfix: point benchmark at the tsdown ESM build",
+          "timestamp": "2026-11-02T12:11:36Z",
+          "tree_id": "98b3c30ad0a8f823997886dbb92c3d1f26ceac12",
+          "url": "https://github.com/moshie/deep-redact/commit/d79ac67e2909238808ed08d0520f88747168dc40"
+        },
+        "date": 1793621526854,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "Redact#redact",
+            "value": 16877,
+            "range": "±1.11%",
+            "unit": "ops/sec",
+            "extra": "90 samples"
           }
         ]
       }
