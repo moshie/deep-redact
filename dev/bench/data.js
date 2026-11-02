@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1793625970586,
+  "lastUpdate": 1793626072497,
   "repoUrl": "https://github.com/moshie/deep-redact",
   "entries": {
     "Deep Redact JS Benchmark": [
@@ -651,6 +651,37 @@ window.BENCHMARK_DATA = {
             "range": "±1.36%",
             "unit": "ops/sec",
             "extra": "88 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "moshie@users.noreply.github.com",
+            "name": "David Hewitt",
+            "username": "moshie"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e2f92a6a38afa686d0b40d7362c844ca2074c442",
+          "message": "Merge pull request #75 from moshie/changeset-release/main\n\nVersion Packages",
+          "timestamp": "2026-11-02T13:27:20Z",
+          "tree_id": "f6611e6f88fa9feadae7ded143852fc2c84d7699",
+          "url": "https://github.com/moshie/deep-redact/commit/e2f92a6a38afa686d0b40d7362c844ca2074c442"
+        },
+        "date": 1793626071688,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "Redact#redact",
+            "value": 51660,
+            "range": "±0.88%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
           }
         ]
       }
