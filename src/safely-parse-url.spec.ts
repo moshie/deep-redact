@@ -6,6 +6,12 @@ describe("# safely parse url", () => {
 		expect(safelyParseUrl(data)).toEqual(data);
 	});
 
+	test("should return back the string if it looks like a URL but isn't valid", () => {
+		// is-url accepts it, but the port is out of range so new URL() throws
+		const data = "http://example.com:99999/path?password=secret";
+		expect(safelyParseUrl(data)).toEqual(data);
+	});
+
 	test("should parse a url correctly", () => {
 		const data = "https://www.test.com/thing?iam=query&parameters=yes&i=am";
 		expect(safelyParseUrl(data)).toEqual({

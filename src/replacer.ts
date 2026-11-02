@@ -2,6 +2,8 @@ import qs from "qs";
 import { redact } from ".";
 import { canBeRedacted } from "./can-be-redacted";
 import { isPlainObject } from "./is-plain-object";
+import { mayHoldRedactableData } from "./may-hold-redactable-data";
+import { getNormalizedList } from "./normalized-list";
 import { safelyConvertToObject } from "./safely-convert-to-object";
 import { safelyParseRelaxedJson } from "./safely-parse-relaxed-json";
 import { safelyParseUrl } from "./safely-parse-url";
@@ -9,12 +11,7 @@ import type { Data, RedactOptions } from "./types";
 
 export const replacer = (options: RedactOptions) => {
 	const { list = [], redactString = "[REDACTED]" } = options;
-	// Only use Set for larger lists (threshold: 10 items)
-	// For small lists, array operations are faster
-	const normalizedList =
-		list.length > 10
-			? new Set(list.map((key) => key.toLowerCase()))
-			: undefined;
+	const normalizedList = getNormalizedList(options, list);
 
 	return (_key: string, data: Data) => {
 		/**
@@ -26,10 +23,11 @@ export const replacer = (options: RedactOptions) => {
 		}
 
 		/**
-		 * If the string can be converted to a number we return it back as a string
-		 * so json parse doesn't get a hold of it and convert it to a number
+		 * Return strings that can't be JSON, a URL or a query string as they are.
+		 * This replaces a check that skipped every string starting with a digit,
+		 * which left query strings like "2fa=on&password=secret" unredacted.
 		 */
-		if (typeof data === "string" && !Number.isNaN(Number.parseInt(data, 10))) {
+		if (typeof data === "string" && !mayHoldRedactableData(data)) {
 			return data;
 		}
 

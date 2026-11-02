@@ -38,8 +38,10 @@ export const safelyParseUrl = (data: string) => {
 				? qs.parse(data, { ignoreQueryPrefix: true })
 				: null;
 
+		// Return rather than throw: building an Error (and its stack) for every
+		// string that isn't a URL or query string was a large share of the cost
 		if (!parsedQuery && !parsedUrl) {
-			throw new Error("invalid query string");
+			return data;
 		}
 
 		return {

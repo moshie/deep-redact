@@ -340,6 +340,61 @@ describe("redact", () => {
 		});
 	});
 
+	test("should redact query strings that start with a digit", () => {
+		const data = {
+			params: "2fa=enabled&password=hunter2&email=test@email.com",
+		};
+		const result = redact(data, {
+			list: ["email", "password"],
+		});
+		expect(result).toEqual({
+			params: "2fa=enabled&password=[REDACTED]&email=[REDACTED]",
+		});
+	});
+
+	test("should redact a query string whose first parameter is a bare number", () => {
+		const result = redact(
+			{ params: "1&password=hunter2" },
+			{ list: ["password"] },
+		) as { params: string };
+
+		expect(result.params).not.toContain("hunter2");
+		expect(result.params).toContain("password=[REDACTED]");
+	});
+
+	test.each([
+		["integer", "123456"],
+		["negative", "-5"],
+		["decimal", "1.5"],
+		["exponent", "1e3"],
+		["hex", "0x1F"],
+		["leading zero", "07700900123"],
+		["beyond safe integer", "12345678901234567890"],
+		["padded", " 42 "],
+		["date", "2026-11-02"],
+		["number then text", "3 items"],
+	])(
+		"should keep a numeric-looking string (%s) as the same string",
+		(_, value) => {
+			const list = ["password"];
+
+			expect(redact(value, { list })).toBe(value);
+			expect(redact({ value }, { list })).toEqual({ value });
+			expect(redact(JSON.stringify([{ value }]), { list })).toEqual([
+				{ value },
+			]);
+		},
+	);
+
+	test.each([
+		["a // that isn't a URL", "see docs // later"],
+		["an = with no value", "key="],
+		["unclosed JSON", "[unclosed"],
+		["invalid JSON", "{not json"],
+	])("should keep a string with %s as it is", (_, value) => {
+		expect(redact({ value }, { list: ["password"] })).toEqual({ value });
+	});
+
 	test("should redact a large GraphQL query string quickly", () => {
 		// A ~28KB GraphQL query in a log line used to take ~2.5s to redact, blocking the event loop
 		const fragment =
