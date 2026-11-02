@@ -1,8 +1,19 @@
 import isUrl from "is-url";
 import qs from "qs";
 
-// Move regex outside function for better performance
-const queryStringRegex = /([^=&?]+)=([^&]+)/g;
+/**
+ * Matches a string containing at least one `key=value` pair. Equivalent to
+ * /([^=&?]+)=([^&]+)/: if a key of any length precedes the `=`, so does a
+ * key of one character, and likewise for the value.
+ *
+ * - No quantifiers, so it runs in linear time. The quantified form
+ *   backtracked quadratically on long strings without a pair (a 28KB
+ *   GraphQL query took over a second).
+ * - No `g` flag, so `test` keeps no `lastIndex` between calls. With it, a
+ *   match on one string made the check on the next string start part-way
+ *   through, so a query string could skip redaction.
+ */
+const queryStringRegex = /[^=&?]=[^&]/;
 
 export const safelyParseUrl = (data: string) => {
 	try {
