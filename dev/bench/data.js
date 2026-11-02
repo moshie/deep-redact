@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1793621527510,
+  "lastUpdate": 1793625970586,
   "repoUrl": "https://github.com/moshie/deep-redact",
   "entries": {
     "Deep Redact JS Benchmark": [
@@ -620,6 +620,37 @@ window.BENCHMARK_DATA = {
             "range": "±1.11%",
             "unit": "ops/sec",
             "extra": "90 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "moshie@users.noreply.github.com",
+            "name": "David Hewitt",
+            "username": "moshie"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c394237cf769d8688023a3713ffd58acd5448751",
+          "message": "Merge pull request #74 from moshie/fix/digit-led-query-strings\n\nfix: redact query strings that start with a digit, and speed up redaction",
+          "timestamp": "2026-11-02T13:25:38Z",
+          "tree_id": "26e3ca5f4701bfd39490e0d40ec4792c4f009fa7",
+          "url": "https://github.com/moshie/deep-redact/commit/c394237cf769d8688023a3713ffd58acd5448751"
+        },
+        "date": 1793625969833,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "Redact#redact",
+            "value": 51227,
+            "range": "±1.36%",
+            "unit": "ops/sec",
+            "extra": "88 samples"
           }
         ]
       }
