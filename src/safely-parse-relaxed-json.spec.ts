@@ -33,6 +33,23 @@ describe("Safely parse JSON", () => {
 		]);
 	});
 
+	test("should return false if the JSON is not an object or array", () => {
+		expect(safelyParseRelaxedJson("/* a comment */ 5")).toBe(false);
+	});
+
+	test("should parse JSON that starts with a comment", () => {
+		expect(safelyParseRelaxedJson("// a comment\n{ email: 'a' }")).toEqual({
+			email: "a",
+		});
+	});
+
+	test.each(["a=1&b={c}", "plain text", "5"])(
+		"should not parse %j, which can't be an object or array",
+		(value) => {
+			expect(safelyParseRelaxedJson(value)).toBe(false);
+		},
+	);
+
 	test("should remove comments from json", () => {
 		const data = `[
             // I am a comment

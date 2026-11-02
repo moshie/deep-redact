@@ -1,3 +1,4 @@
+import { withNormalizedList } from "./normalized-list";
 import { replacer as replace } from "./replacer";
 import type { Data, RedactOptions } from "./types";
 
@@ -12,7 +13,10 @@ export const redact = (data: Data, options: RedactOptions) => {
 	}
 
 	try {
-		const raw = JSON.stringify(data, replace(options));
+		const raw = JSON.stringify(
+			data,
+			replace(withNormalizedList(options, list)),
+		);
 		return JSON.parse(raw);
 	} catch (e) {
 		if (strict) {
