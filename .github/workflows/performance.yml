@@ -30,6 +30,8 @@ jobs:
         run: pnpm build
 
       - name: Run benchmark
+        # `shell: bash` adds pipefail, so a crashing benchmark fails here instead of `tee` hiding it
+        shell: bash
         run: node benchmark.mjs | tee output.txt
 
       - name: Download previous benchmark data

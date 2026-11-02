@@ -1,5 +1,5 @@
 import Benchmark from "benchmark";
-import { redact } from "./dist/index.js";
+import { redact } from "./dist/index.mjs";
 
 const data = {
 	email: "hello@test.com",
