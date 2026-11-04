@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1793626072497,
+  "lastUpdate": 1793796089367,
   "repoUrl": "https://github.com/moshie/deep-redact",
   "entries": {
     "Deep Redact JS Benchmark": [
@@ -682,6 +682,37 @@ window.BENCHMARK_DATA = {
             "range": "±0.88%",
             "unit": "ops/sec",
             "extra": "92 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "moshie@users.noreply.github.com",
+            "name": "David Hewitt",
+            "username": "moshie"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c04b1c53b28ea7c5f71e96641552b5037412a624",
+          "message": "Merge pull request #76 from moshie/fix/nested-query-string-blowup\n\nfix: redact strings with many = signs, such as HTML, in linear time",
+          "timestamp": "2026-11-04T12:40:57Z",
+          "tree_id": "062f4b2a0b93281680a68afb275f798e98c2a76d",
+          "url": "https://github.com/moshie/deep-redact/commit/c04b1c53b28ea7c5f71e96641552b5037412a624"
+        },
+        "date": 1793796089018,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "Redact#redact",
+            "value": 56345,
+            "range": "±1.02%",
+            "unit": "ops/sec",
+            "extra": "90 samples"
           }
         ]
       }
