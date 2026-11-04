@@ -416,6 +416,24 @@ describe("redact", () => {
 		expect(ms).toBeLessThan(250);
 	});
 
+	test("should redact a string with many = signs, such as HTML, quickly", () => {
+		// HTML attributes make a string look like a query string, and each parsed value holds the
+		// next `=`. A ~1.9KB CMS table took ~10s to redact, doubling with every attribute.
+		const row =
+			'<tr><td style="width: 50%;">Fund</td><td style="width: 50%;">Bold</td></tr>';
+		const data = {
+			html: `<table border="1" style="border-collapse: collapse;">${row.repeat(7)}</table>`,
+			password: "123456",
+		};
+
+		const start = performance.now();
+		const result = redact(data, { list: ["password"] });
+		const ms = performance.now() - start;
+
+		expect(result.password).toBe("[REDACTED]");
+		expect(ms).toBeLessThan(250);
+	});
+
 	test("should throw an error if strict is true and the data is not redacted", () => {
 		const data = {
 			email: "hello@test.com",

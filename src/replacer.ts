@@ -88,19 +88,27 @@ export const replacer = (options: RedactOptions) => {
 		 */
 		if (isPlainObject(data)) {
 			for (const key in data) {
-				// the key could be blacklisted but the data[key] could be json
-				if (typeof data[key] === "string" && data[key] !== redactString) {
+				const isListed = (value: Data) =>
+					canBeRedacted({ key, value, list, normalizedList });
+
+				/**
+				 * A listed key could hold JSON, which is kept as an object with its own
+				 * keys redacted, so parse the string before deciding.
+				 *
+				 * Any other string is left for JSON.stringify, which passes it back
+				 * through this replacer next. Redacting it here as well did the work
+				 * twice at every level, so a string whose parsed values hold more
+				 * `key=value` pairs, such as HTML, took exponential time.
+				 */
+				if (
+					typeof data[key] === "string" &&
+					data[key] !== redactString &&
+					isListed(data[key])
+				) {
 					data[key] = redact(data[key], options);
 				}
 
-				data[key] = canBeRedacted({
-					key,
-					value: data[key],
-					list,
-					normalizedList,
-				})
-					? redactString
-					: data[key];
+				data[key] = isListed(data[key]) ? redactString : data[key];
 			}
 
 			return data;
