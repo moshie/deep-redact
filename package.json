@@ -52,9 +52,9 @@
 	},
 	"license": "MIT",
 	"dependencies": {
+		"@fregante/relaxed-json": "2.0.0",
 		"is-url": "1.2.4",
-		"qs": "6.17.1",
-		"relaxed-json": "1.0.3"
+		"qs": "6.17.1"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.5.12",
@@ -62,7 +62,6 @@
 		"@types/benchmark": "^2.1.5",
 		"@types/is-url": "^1.2.32",
 		"@types/qs": "^6.15.1",
-		"@types/relaxed-json": "^1.0.4",
 		"@vitest/coverage-v8": "^4.1.11",
 		"benchmark": "^2.1.4",
 		"lefthook": "^2.1.12",

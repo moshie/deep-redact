@@ -1,4 +1,4 @@
-import relaxedJson from "relaxed-json";
+import relaxedJson from "@fregante/relaxed-json";
 import { mayHoldRedactableData } from "./may-hold-redactable-data";
 import { safelyParseUrl } from "./safely-parse-url";
 
