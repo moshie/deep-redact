@@ -1,4 +1,4 @@
-import relaxedJson from "relaxed-json";
+import relaxedJson from "@fregante/relaxed-json";
 import { startsLikeJson } from "./may-hold-redactable-data";
 
 export const safelyParseRelaxedJson = (str: string) => {
