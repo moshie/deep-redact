@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1793796246634,
+  "lastUpdate": 1793869962939,
   "repoUrl": "https://github.com/moshie/deep-redact",
   "entries": {
     "Deep Redact JS Benchmark": [
@@ -744,6 +744,37 @@ window.BENCHMARK_DATA = {
             "range": "±1.47%",
             "unit": "ops/sec",
             "extra": "87 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "moshie@users.noreply.github.com",
+            "name": "David Hewitt",
+            "username": "moshie"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "36fcd315f5451592560f3c91cb13eaf1ac59966e",
+          "message": "Merge pull request #78 from moshie/improve/replace-relaxed-json\n\nfix: replace relaxed-json with @fregante/relaxed-json to drop chalk@2",
+          "timestamp": "2026-11-05T09:12:00Z",
+          "tree_id": "d910f9f30f60301d442cf66ada36be0f79fa8b08",
+          "url": "https://github.com/moshie/deep-redact/commit/36fcd315f5451592560f3c91cb13eaf1ac59966e"
+        },
+        "date": 1793869962226,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "Redact#redact",
+            "value": 100173,
+            "range": "±1.32%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
           }
         ]
       }
