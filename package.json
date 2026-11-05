@@ -1,6 +1,6 @@
 {
 	"name": "deep-redact",
-	"version": "1.0.20",
+	"version": "1.0.21",
 	"description": "Deeply redact sensitive data from JS primitives",
 	"repository": {
 		"type": "git",
